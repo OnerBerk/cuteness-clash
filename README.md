@@ -65,4 +65,3 @@ src/
 ├── types/               # Routing types and interfaces
 └── main.tsx             # Application entry point
 ```
-

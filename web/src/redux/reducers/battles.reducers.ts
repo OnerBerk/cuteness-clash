@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import type { BattleType, CatType } from '@/types/types';
+import { createSlice } from '@reduxjs/toolkit';
+import type { BattleType } from '@/types/types';
 import { generateBattle } from '../actions/battles.actions';
 import catsData from '@/data/cats.json';
 
@@ -12,7 +12,7 @@ const generateAllPossibleBattles = () => {
     for (let j = i + 1; j < catsData.images.length; j++) {
       battles.push({
         openentOne: catsData.images[i],
-        openentTwo: catsData.images[j]
+        openentTwo: catsData.images[j],
       });
     }
   }
@@ -20,7 +20,6 @@ const generateAllPossibleBattles = () => {
 };
 
 const allPossibleBattles = generateAllPossibleBattles();
-
 
 export interface BattlesState {
   isLoading: boolean;
@@ -54,6 +53,6 @@ export const battlesSlice = createSlice({
   },
 });
 
-export const {} = battlesSlice.actions;
+export const { reducer: battlesReducer } = battlesSlice;
 
-export default battlesSlice.reducer;
+export default battlesReducer;
