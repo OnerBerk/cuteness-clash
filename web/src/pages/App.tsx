@@ -1,5 +1,7 @@
+import AppRoutes from '@/app-routes/routes';
+
 function App() {
-  return <div>cutieness battle</div>;
+  return <AppRoutes />;
 }
 
 export default App;

@@ -10,6 +10,7 @@ Built for a technical test — because who doesn't love ranking adorable cats?
 - **TypeScript**: 5.8.3
 - **Vite**: 7.1.2
 - **ESLint**: 9.33.0
+- **SCSS**: Styles modulaires
 
 ## 🚀 Getting Started
 
@@ -41,11 +42,27 @@ The app will be available at `http://localhost:5173/`
 
 ```
 src/
-├── assets/          # Static assets (images, icons)
-├── components/      # Reusable UI components
-├── pages/          # Page components (App.tsx, etc.)
-├── store/          # State management
-└──  ui-components/  # UI component library
+├── assets/              # Static assets (images, icons)
+├── components/          # Reusable UI components
+│   ├── layouts/         # Layout components
+│   │   ├── layout.tsx
+│   │   └── layout.scss
+│   └── ui-components/   # UI component library
+│       └── button/
+│           ├── button.tsx
+│           └── button.scss
+├── pages/               # Page components
+│   ├── home/
+│   │   ├── home-page.tsx
+│   │   └── home-page.scss
+│   └── App.tsx
+├── redux/               # State management
+│   ├── actions/         # Redux actions
+│   ├── reducers/        # Redux reducers
+│   └── store.ts         # Redux store configuration
+├── styles/              # Global styles
+├── app-routes/          # Routing configuration
+└── main.tsx             # Application entry point
 ```
 
 ## 🏗️ Build
@@ -66,3 +83,4 @@ Run ESLint:
 ```bash
 pnpm run lint
 ```
+
