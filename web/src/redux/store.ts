@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import battlesReducers from './reducers/battle.reducers'
+import battlesReducers from './reducers/battles.reducers'
 
 export const store = configureStore({
   reducer: {
-    battles: battlesReducers,
+    battlesReducers: battlesReducers,
   },
 });
 

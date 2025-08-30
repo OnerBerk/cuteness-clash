@@ -1,5 +1,18 @@
-.layout-main{
-    height: 100vh;
-    overflow: hidden;
-    padding: 10px 10px 0 10px;
+.layout-main {
+  height: 100%;
+  .layout-main-header {
+    .layout-main-header-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 70px;
+        height: auto;
+      }
+      .layout-main-header-title {
+        font-weight: 700;
+      }
+    }
+  }
 }
