@@ -6,7 +6,7 @@ const LayoutHeader: React.FC = () => {
     <div className="layout-main-header">
       <div className="layout-main-header-logo">
         <img aria-label="logo" alt="logo" src={logo} />
-        <div className="layout-main-header-title">CATMASH</div>
+        <div className="layout-main-header-title">catmash</div>
       </div>
     </div>
   );

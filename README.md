@@ -10,18 +10,22 @@ Built for a technical test — because who doesn't love ranking adorable cats?
 - **TypeScript**: 5.8.3
 - **Vite**: 7.1.2
 - **ESLint**: 9.33.0
-- **SCSS**: Styles 
+- **SCSS**: Styles
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 Make sure you have the correct Node.js version:
+
 ```bash
 nvm use
 ```
 
 ### Installation
+
 Install dependencies:
+
 ```bash
 pnpm install
 # or
@@ -31,7 +35,9 @@ yarn install
 ```
 
 ### Development
+
 Start the development server:
+
 ```bash
 pnpm run dev
 ```
@@ -65,3 +71,9 @@ src/
 ├── types/               # Routing types and interfaces
 └── main.tsx             # Application entry point
 ```
+
+## 🌐 Live Demo
+
+**🎮 [CutenessClash - Live Site](https://cuteness-clash-pfo9.vercel.app/)**
+
+Votez pour les chats les plus mignons en direct !

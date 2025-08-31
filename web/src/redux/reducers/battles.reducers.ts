@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { BattleType } from '@/types/types';
-import { generateBattle } from '../actions/battles.actions';
+import { generateBattle, getRanking, voteForCutesCat } from '../actions/battles.actions';
 import catsData from '@/data/cats.json';
 
 const cachedBattles = localStorage.getItem('battles');
@@ -26,12 +26,14 @@ export interface BattlesState {
   battles: BattleType[];
   currentBattle: BattleType | undefined;
   allPossibleBattles: BattleType[];
+  ranking: BattleType[][];
 }
 const initialState: BattlesState = {
   isLoading: false,
   battles: parsedBattles,
   currentBattle: undefined,
   allPossibleBattles: allPossibleBattles,
+  ranking: [],
 };
 
 export const battlesSlice = createSlice({
@@ -49,6 +51,24 @@ export const battlesSlice = createSlice({
       })
       .addCase(generateBattle.rejected, (state) => {
         state.isLoading = false;
+      });
+
+    builder
+      .addCase(voteForCutesCat.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(voteForCutesCat.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.battles = [...state.battles, action.payload];
+      });
+
+    builder
+      .addCase(getRanking.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getRanking.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.ranking = action.payload;
       });
   },
 });

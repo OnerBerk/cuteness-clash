@@ -1,10 +1,26 @@
-$primary-color: #07192e;
-$secondary-color: #6c757d;
+$primary-color: #0c2643;
+$secondary-color: #29465f;
+$tertiary-color: #7a8996;
 $background-color: #ffffff;
 $text-color: #333333;
-$font-family-primary: 'Karla', sans-serif;
+$font-family-primary: 'Epunda Slab', serif;
 $font-size-base: 1rem;
 $line-height-base: 1.5;
+
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
 
 *,
 *::before,

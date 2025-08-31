@@ -17,6 +17,7 @@
       }
       .layout-main-header-title {
         font-weight: 700;
+        text-transform: uppercase;
       }
     }
   }
@@ -28,11 +29,15 @@
       flex-direction: column;
       padding: 10px;
       border: 2px solid $primary-color;
+      border-bottom: none;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       margin: 0 auto;
       width: 700px;
       height: 100%;
+      @include mobile {
+        width: 100%;
+      }
       .layout-main-footer-content-item {
         cursor: pointer;
         height: 40px;

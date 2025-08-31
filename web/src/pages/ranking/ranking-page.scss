@@ -1,0 +1,117 @@
+@use '@/styles/global.scss' as *;
+
+.ranking-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ranking-main {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  overflow: hidden;
+  padding: 1rem;
+
+  &-podium {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: end;
+    gap: 0.5rem;
+  }
+
+  .podium-item {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 20% 60% 20%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+    .podium-item-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        border-radius: 10px;
+        border: 2px solid $primary-color;
+        width: 180px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+    }
+
+    .position {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid white;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .podium-item-info {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    &.first {
+      height: 100%;
+      background: $primary-color;
+    }
+    &.second {
+      height: 90%;
+      background: $secondary-color;
+    }
+    &.third {
+      height: 80%;
+      background: $tertiary-color;
+    }
+  }
+
+  &-others {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 2rem;
+    border-radius: 10px;
+    overflow-y: auto;
+    gap: 1rem;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .podium-item {
+      background: white;
+      border: 2px solid $primary-color;
+      .position {
+        border: 2px solid $primary-color;
+        color: $primary-color;
+      }
+      .podium-item-info {
+        color: $primary-color;
+      }
+      .podium-item-image {
+        height: 250px;
+      }
+    }
+  }
+}

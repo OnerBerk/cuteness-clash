@@ -1,0 +1,16 @@
+@use '@/styles/global.scss' as *;
+
+.ui-button-main {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  max-width: 100px;
+  &:hover {
+    background-color: white;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+  }
+}

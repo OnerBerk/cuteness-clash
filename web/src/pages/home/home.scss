@@ -1,10 +1,58 @@
+@use '@/styles/global.scss' as *;
+
 .home-main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  img {
-    width: 20%;
-    height: auto;
+  flex-direction: row;
+  border-radius: 10px;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  .home-main-opponent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    img {
+      border-radius: 10px;
+      border: 7px double $primary-color;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      width: 60%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      height: auto;
+
+      @include mobile {
+        width: 50%;
+      }
+    }
+  }
+
+  .home-main-divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: '100%';
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .home-main-divider {
+    border: 2px dashed $primary-color;
+    height: 100%;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 }

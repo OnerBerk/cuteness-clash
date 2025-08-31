@@ -1,24 +1,44 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
+import type { CatType } from '@/types/types';
 
+import { generateBattle, voteForCutesCat } from '@/redux/actions/battles.actions';
 import { useAppDispatch } from '@/hooks/redux.hook';
 import type { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
 
-import { generateBattle } from '@/redux/actions/battles.actions';
-
 import './home.scss';
+import OpenentsBlock from './openents-block';
 
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
   const currentBattle = useSelector((state: RootState) => state.battlesReducers.currentBattle);
 
+  const handleVoteForBattle = useCallback(
+    (winner: CatType) => {
+      if (currentBattle) {
+        dispatch(voteForCutesCat({ ...currentBattle, winner }));
+      }
+    },
+    [currentBattle, dispatch],
+  );
+
+  useEffect(() => {
+    if (!currentBattle) {
+      dispatch(generateBattle());
+    }
+  }, [currentBattle, dispatch]);
+
   if (!currentBattle) {
-    dispatch(generateBattle());
+    return <div className="home-loading">Chargement des chats...</div>;
   }
+
   return (
     <div className="home-main">
-      <img src={currentBattle?.openentOne.url} alt="Openent One" />
-      <img src={currentBattle?.openentTwo.url} alt="Openent Two" />
+      <OpenentsBlock url={currentBattle?.openentOne.url} handleVoteForBattle={() => handleVoteForBattle(currentBattle.openentOne)} />
+      <div className="home-main-divider-container">
+        <span className="home-main-divider"></span>
+      </div>
+      <OpenentsBlock url={currentBattle?.openentTwo.url} handleVoteForBattle={() => handleVoteForBattle(currentBattle.openentTwo)} />
     </div>
   );
 };

@@ -8,23 +8,19 @@ const LayoutFooter: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isPodiumPage = location.pathname === '/podium';
+  const isRankingPage = location.pathname === '/ranking';
 
   const playedMatches = useMemo(() => {
     return `${battles.length ?? 0} match${battles.length > 0 ? 's' : ''} joué${battles.length > 0 ? 's' : ''}`;
   }, [battles]);
 
-  const description = useMemo(() => {
-    return isPodiumPage ? 'Revenir aux votes' : 'Voir le classement des chats';
-  }, [isPodiumPage]);
-
   const handleClick = useCallback(() => {
-    if (isPodiumPage) {
+    if (isRankingPage) {
       navigate('/');
     } else {
-      navigate('/podium');
+      navigate('/ranking');
     }
-  }, [isPodiumPage, navigate]);
+  }, [isRankingPage, navigate]);
 
   return (
     <div className="layout-main-footer">
@@ -32,7 +28,7 @@ const LayoutFooter: React.FC = () => {
         <div className="layout-main-footer-content-item">
           <i className="fas fa-chevron-up" />
         </div>
-        <div className="layout-main-footer-content-item">{description}</div>
+        <div className="layout-main-footer-content-item">{isRankingPage ? 'Revenir aux votes' : 'Voir le classement des chats'}</div>
         <div className="layout-main-footer-content-item bottom">
           <p>{playedMatches}</p>
         </div>

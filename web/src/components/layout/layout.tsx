@@ -1,8 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import './layout.scss';
+
 import LayoutHeader from './layout.header';
 import LayoutFooter from './layout.footer';
+
+import './layout.scss';
 
 const Layout: React.FC = () => {
   return (
