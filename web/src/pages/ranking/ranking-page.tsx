@@ -39,9 +39,9 @@ const PodiumPage: React.FC = () => {
   return (
     <div className="ranking-main">
       <div className="ranking-main-podium">
-        {podium[1] && <PodiumItem cat={podium[1][0].winner} victories={podium[1].length} className="second" position={2} />}
-        {podium[0] && <PodiumItem cat={podium[0][0].winner} victories={podium[0].length} className="first" position={1} />}
-        {podium[2] && <PodiumItem cat={podium[2][0].winner} victories={podium[2].length} className="third" position={3} />}
+        {podium[1] ? <PodiumItem cat={podium[1][0].winner} victories={podium[1].length} className="second" position={2} /> : <div />}
+        {podium[0] ? <PodiumItem cat={podium[0][0].winner} victories={podium[0].length} className="first" position={1} /> : <div />}
+        {podium[2] ? <PodiumItem cat={podium[2][0].winner} victories={podium[2].length} className="third" position={3} /> : <div />}
       </div>
 
       <div className="ranking-main-others">

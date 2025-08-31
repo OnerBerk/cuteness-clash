@@ -6,8 +6,8 @@ import { useAppDispatch } from '@/hooks/redux.hook';
 import type { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
 
-import './home.scss';
 import OpenentsBlock from './openents-block';
+import './home.scss';
 
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
